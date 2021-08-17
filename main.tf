@@ -72,8 +72,8 @@ resource "aws_autoscaling_policy" "nexus-asg-policy-1" {
 resource "aws_autoscaling_group" "nexus-asg" {
   name                 = "nexus-asg"
   launch_configuration = aws_launch_configuration.nexus-lc.id
-  min_size             = 2
-  max_size             = 3
+  min_size             = var.min_instances
+  max_size             = var.max_instances
   health_check_type    = "EC2"
   vpc_zone_identifier  = tolist([aws_default_subnet.subnet_1.id, aws_default_subnet.subnet_2.id])
   depends_on           = [aws_launch_configuration.nexus-lc]
