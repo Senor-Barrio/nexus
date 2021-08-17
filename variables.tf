@@ -20,3 +20,13 @@ variable "instance_count" {
   description = "Number of EC2 instances"
   default     = 1
 }
+
+variable "min_instances" {
+  description = "Minimum number of instances in the ASG"
+  default     = 2
+}
+
+variable "max_instances" {
+  description = "Maximum number of instances in the ASG"
+  default     = 3
+}
